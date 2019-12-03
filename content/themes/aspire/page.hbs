@@ -2,7 +2,9 @@
 
 {{#post}}
 
-<div class='c-post-hero' style='background-image: url({{ feature_image }})'></div>
+{{#if feature_image}}
+  <div class='c-post-hero' style='background-image: url({{ feature_image }})'></div>
+{{/if}}
 
 <div class='o-wrapper'>
 

@@ -1,8 +1,9 @@
 {{!< default}}
 
 {{#post}}
-
-<div class='c-post-hero' style='background-image: url({{ feature_image }})'></div>
+{{#if feature_image}}
+  <div class='c-post-hero' style='background-image: url({{ feature_image }})'></div>
+{{/if}}
 
 <div class='o-wrapper'>
 
@@ -19,9 +20,9 @@
         </div>
 
         {{#if tags}}
-          <div class='c-tags'>
-            {{ tags separator='' }}
-          </div>
+        <div class='c-tags'>
+          {{ tags separator='' }}
+        </div>
         {{/if}}
 
         <div class='o-grid'>
@@ -33,62 +34,65 @@
         <hr>
 
         {{#if @labs.subscribers }}
-          {{> post-subscribe }}
+        {{> post-subscribe }}
         {{/if}}
 
+        {{#if false}}
         {{#primary_author}}
-          <div class='c-author'>
+        <div class='c-author'>
 
-            {{#if profile_image}}
-              <img class='c-author__img' src='{{ profile_image }}' alt='{{ name }}'>
+          {{#if profile_image}}
+          <img class='c-author__img' src='{{ profile_image }}' alt='{{ name }}'>
+          {{/if}}
+
+          <div class='c-author__body'>
+            <h3 class='c-author__name'>
+              <a href='{{ url }}'>{{ name }}</a>
+            </h3>
+
+            {{#if bio}}
+            <p class='c-author__bio'>{{ bio }}</p>
             {{/if}}
 
-            <div class='c-author__body'>
-              <h3 class='c-author__name'>
-                <a href='{{ url }}'>{{ name }}</a>
-              </h3>
-
-              {{#if bio}}
-                <p class='c-author__bio'>{{ bio }}</p>
+            <ul class='c-author-links o-plain-list'>
+              {{#if twitter}}
+              <li class='c-author-links__item'>
+                <a href='{{ twitter_url }}' aria-label='Twitter' target='_blank'>
+                  <span class='c-author-links__icon' data-icon='ei-sc-twitter' data-size='s'></span>
+                </a>
+              </li>
               {{/if}}
 
-              <ul class='c-author-links o-plain-list'>
-                {{#if twitter}}
-                  <li class='c-author-links__item'>
-                    <a href='{{ twitter_url }}' aria-label='Twitter' target='_blank'>
-                      <span class='c-author-links__icon' data-icon='ei-sc-twitter' data-size='s'></span>
-                    </a>
-                  </li>
-                {{/if}}
+              {{#if facebook}}
+              <li class='c-author-links__item'>
+                <a href='{{ facebook_url }}' aria-label='Facebook' target='_blank'>
+                  <span class='c-author-links__icon' data-icon='ei-sc-facebook' data-size='s'></span>
+                </a>
+              </li>
+              {{/if}}
 
-                {{#if facebook}}
-                  <li class='c-author-links__item'>
-                    <a href='{{ facebook_url }}' aria-label='Facebook' target='_blank'>
-                      <span class='c-author-links__icon' data-icon='ei-sc-facebook' data-size='s'></span>
-                    </a>
-                  </li>
-                {{/if}}
+              {{#if website}}
+              <li class='c-author-links__item'>
+                <a href='{{ website }}' aria-label='Website' target='_blank'>
+                  <span class='c-author-links__icon' data-icon='ei-link' data-size='s'></span>
+                </a>
+              </li>
+              {{/if}}
 
-                {{#if website}}
-                  <li class='c-author-links__item'>
-                    <a href='{{ website }}' aria-label='Website' target='_blank'>
-                      <span class='c-author-links__icon' data-icon='ei-link' data-size='s'></span>
-                    </a>
-                  </li>
-                {{/if}}
-
-                {{#if location}}
-                  <li class='c-author-links__item' aria-label='Location'>
-                    <span class='c-author-links__icon' data-icon='ei-location' data-size='s'></span>{{ location }}
-                  </li>
-                {{/if}}
-              </ul>
-            </div>
-
+              {{#if location}}
+              <li class='c-author-links__item' aria-label='Location'>
+                <span class='c-author-links__icon' data-icon='ei-location' data-size='s'></span>{{ location }}
+              </li>
+              {{/if}}
+            </ul>
           </div>
-        {{/primary_author}}
 
+        </div>
+        {{/primary_author}}
         <hr>
+
+        {{/if}}
+
 
         {{> disqus}}
 
