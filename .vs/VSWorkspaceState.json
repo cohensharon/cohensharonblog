@@ -2,12 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\content",
-    "\\content\\themes",
     "\\content\\themes\\aspire",
     "\\content\\themes\\aspire\\assets",
     "\\content\\themes\\aspire\\assets\\js",
     "\\content\\themes\\aspire\\partials"
   ],
-  "SelectedNode": "\\content\\themes\\aspire\\partials\\disqus.hbs",
+  "SelectedNode": "\\content\\themes",
   "PreviewInSolutionExplorer": false
 }
